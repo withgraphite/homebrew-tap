@@ -23,6 +23,7 @@
     "handlebars": "^4.7.6",
     "ncp": "^2.0.0",
     "node-fetch": "^2.6.1",
+    "shared-routes": "file:../../../../usr/local/Cellar/screenplay/0.8.0/libexec/lib/node_modules/screenplay-cli/screenplay-libs/shared_routes",
     "tmp": "^0.2.1",
     "yargs": "^15.4.1"
   },

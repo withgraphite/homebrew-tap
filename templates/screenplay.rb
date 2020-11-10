@@ -10,10 +10,10 @@ class Screenplay < Formula
   depends_on "node"
 
   def install
-    system "npm", "install", "--cwd", "#{Dir.pwd}/screenplay-libs/retype", *Language::Node.local_npm_install_args
-    system "npm", "install", "--cwd", "#{Dir.pwd}/screenplay-libs/shared_routes", *Language::Node.local_npm_install_args
-    system "npm", "install", "--cwd", "#{Dir.pwd}/screenplay-libs/xcodejs", *Language::Node.local_npm_install_args
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", "--prefix", "#{libexec}/lib/node_modules/screenplay-cli/screenplay-libs/retype", *Language::Node.local_npm_install_args
+    system "npm", "install", "--prefix", "#{libexec}/lib/node_modules/screenplay-cli/screenplay-libs/shared_routes", *Language::Node.local_npm_install_args
+    system "npm", "install", "--prefix", "#{libexec}/lib/node_modules/screenplay-cli/screenplay-libs/xcodejs", *Language::Node.local_npm_install_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
