@@ -8,7 +8,8 @@
     "@typescript-eslint"
   ],
   "rules": {
-    "@typescript-eslint/no-floating-promises": "error"
+    "@typescript-eslint/no-floating-promises": "error",
+    "max-lines-per-function": ["error", { "max": 120 }]
   },
   "extends": [
     "eslint:recommended",
