@@ -3,8 +3,8 @@ require "language/node"
 class Screenplay < Formula
   desc "The Screenplay CLI allows you to add Screenplay (https://screenplay.dev) to existing xcode projects."
   homepage "https://github.com/screenplaydev/screenplay-cli/"
-  url "https://github.com/screenplaydev/screenplay-cli/archive/v0.35.2.zip"
-  sha256 "9df8ca03d0a925d935fb791aad157cc54ee865e3e81cfc0c2b44336ccdd6b720"
+  url "https://github.com/screenplaydev/screenplay-cli/archive/v0.35.3.zip"
+  sha256 "aa767aa91d27e070cc94f87c5f290fe0682565e81d981ee9baadfb9e61c85570"
   license "None"
 
   depends_on "node"
