@@ -20,11 +20,11 @@
     "chalk": "^4.1.0",
     "child_process": "^1.0.2",
     "fs-extra": "^9.0.1",
-    "handlebars": "^4.7.6",
+    "handlebars": "^4.7.7",
     "ncp": "^2.0.0",
     "node-fetch": "^2.6.1",
     "tmp": "^0.2.1",
-    "yargs": "^15.4.1"
+    "yargs": "^17.0.1"
   },
   "scripts": {
     "build": "tsc",
