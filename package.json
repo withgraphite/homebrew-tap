@@ -28,6 +28,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "update-version": "ts-node ./index.ts update-version"
+    "update-screenplay-cli-version": "ts-node ./index.ts update-screenplay-cli-version",
+    "update-graphite-cli-version": "ts-node ./index.ts update-graphite-cli-version"
   }
 }
