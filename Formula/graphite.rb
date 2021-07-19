@@ -3,14 +3,15 @@ require "language/node"
 class Graphite < Formula
   desc "The Graphite CLI allows you to easily manage your stacked-diff workflow."
   homepage "https://graphite.dev/"
-  url "https://github.com/screenplaydev/graphite-cli/archive/v0.1.0.zip"
-  sha256 "eada2e2bf4cf00d8d9d49e4951bb471f0547e767df844291a262874a90d642f9"
+  url "https://github.com/screenplaydev/graphite-cli/archive/v0.1.1.zip"
+  sha256 "175f4d039057de041637202cb155601221cd66329c14824818bfceebf3fcb64f"
   license "None"
 
   depends_on "node"
 
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
   test do
