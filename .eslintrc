@@ -1,18 +1,11 @@
 {
   "root": true,
-  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": "./tsconfig.json"
   },
-  "plugins": [
-    "@typescript-eslint"
-  ],
+  "plugins": ["@typescript-eslint"],
   "rules": {
-    "@typescript-eslint/no-floating-promises": "error",
-    "max-lines-per-function": ["error", { "max": 120 }]
+    "@typescript-eslint/no-floating-promises": "error"
   },
-  "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended"
-  ]
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"]
 }
