@@ -40,10 +40,10 @@ yargs
 
       const formulaName = `graphite${argv.nightly === true ? '-nightly' : ''}`;
       fs.writeFileSync(
-        path.join(__dirname, `Formula/${formulaName}.rb`),
+        path.join(__dirname, `../Formula/${formulaName}.rb`),
         handlebars.compile(
           fs
-            .readFileSync(path.join(__dirname, `templates/${formulaName}.rb`))
+            .readFileSync(path.join(__dirname, `../formula-templates/${formulaName}.rb`))
             .toString()
         )({
           url: url,
