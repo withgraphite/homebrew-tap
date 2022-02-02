@@ -9,11 +9,11 @@ import yargs from "yargs";
 
 yargs
   .command(
-    "update-graphite-cli-version <semver>",
+    "update-graphite-cli-version <tag>",
     "Update the version and shasum of the Graphite CLI",
     (yargs) => {
-      yargs.positional("semver", {
-        describe: "The semver of the release",
+      yargs.positional("tag", {
+        describe: "The tag of the release",
         type: "string",
       });
       yargs.option("nightly", {
@@ -26,7 +26,7 @@ yargs
       const version = argv["semver"] as string;
 
       // download the repo and calculate the shasum
-      const url = `https://github.com/screenplaydev/graphite-cli/archive/v${version}.zip`;
+      const url = `https://github.com/screenplaydev/graphite-cli/archive/${version}.zip`;
 
       process.chdir(tmp.dirSync({ keep: false }).name);
       execSync(`curl -L ${url} --output graphite-cli.zip`);
@@ -36,11 +36,13 @@ yargs
         .trim()
         .split(" ")[0];
 
+
+      const formulaName = `graphite${argv.nightly === true ? '-nightly' : ''}`;
       fs.writeFileSync(
-        path.join(__dirname, `Formula/graphite${argv.nightly === true ? '-nightly' : ''}.rb`),
+        path.join(__dirname, `Formula/${formulaName}.rb`),
         handlebars.compile(
           fs
-            .readFileSync(path.join(__dirname, "templates/graphite.rb"))
+            .readFileSync(path.join(__dirname, `templates/${formulaName}.rb`))
             .toString()
         )({
           url: url,
