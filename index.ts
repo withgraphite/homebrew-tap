@@ -15,6 +15,7 @@ yargs
       yargs.positional("tag", {
         describe: "The tag of the release",
         type: "string",
+        required: true,
       });
       yargs.option("nightly", {
         describe: "Whether to update the nightly formula or not",
@@ -47,6 +48,7 @@ yargs
         )({
           url: url,
           shasum: shasum,
+          version: tag.slice(1), // assuming the tag is just the version prepended with "v"
         })
       );
     }

@@ -5,6 +5,7 @@ class Graphite < Formula
   homepage "https://graphite.dev/"
   url "{{url}}"
   sha256 "{{shasum}}"
+  version "{{version}}"
   license "None"
 
   depends_on "node"
