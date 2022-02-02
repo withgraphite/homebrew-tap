@@ -36,11 +36,13 @@ yargs
         .trim()
         .split(" ")[0];
 
+
+      const formulaName = `graphite${argv.nightly === true ? '-nightly' : ''}`;
       fs.writeFileSync(
-        path.join(__dirname, `Formula/graphite${argv.nightly === true ? '-nightly' : ''}.rb`),
+        path.join(__dirname, `Formula/${formulaName}.rb`),
         handlebars.compile(
           fs
-            .readFileSync(path.join(__dirname, "templates/graphite.rb"))
+            .readFileSync(path.join(__dirname, `templates/${formulaName}.rb`))
             .toString()
         )({
           url: url,
