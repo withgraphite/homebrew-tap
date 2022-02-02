@@ -48,7 +48,7 @@ yargs
         )({
           url: url,
           shasum: shasum,
-          version: tag.slice(1), // assuming the tag is just the version prepended with "v"
+          version: tag.slice(1).split('-')[0], // v1.2.3-abc => 1.2.3
         })
       );
     }
