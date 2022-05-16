@@ -3,9 +3,9 @@ require "language/node"
 class Graphite < Formula
   desc "The Graphite CLI allows you to easily manage your stacked-diff workflow."
   homepage "https://graphite.dev/"
-  url "https://github.com/screenplaydev/graphite-cli/archive/v0.18.2.zip"
-  sha256 "b248c954877cf1eafebfead1ce5ee12201c512154489ca693ddeea4e555f3a56"
-  version "0.18.2"
+  url "https://github.com/screenplaydev/graphite-cli/archive/v0.18.3.zip"
+  sha256 "6d43a8d84f961c850fe1e3af0d89cb94ea2fc18e28c712740ff3dc3d91338200"
+  version "0.18.3"
   license "None"
 
   depends_on "node"
