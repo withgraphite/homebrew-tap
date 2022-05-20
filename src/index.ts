@@ -17,11 +17,6 @@ yargs
         type: "string",
         required: true,
       });
-      yargs.option("nightly", {
-        describe: "Whether to update the nightly formula or not",
-        type: "boolean",
-        required: "true",
-      });
     },
     (argv) => {
       const tag = argv["tag"] as string;
@@ -38,7 +33,7 @@ yargs
         .split(" ")[0];
 
 
-      const formulaName = `graphite${argv.nightly === true ? '-nightly' : ''}`;
+      const formulaName = `graphite`;
       fs.writeFileSync(
         path.join(__dirname, `../Formula/${formulaName}.rb`),
         handlebars.compile(
