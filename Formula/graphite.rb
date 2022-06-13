@@ -8,7 +8,7 @@ class Graphite < Formula
   version "0.19.0"
   license "None"
 
-  depends_on "node"
+  depends_on "node@16"
 
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
