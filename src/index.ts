@@ -22,7 +22,7 @@ yargs
       const tag = argv["tag"] as string;
 
       // download the repo and calculate the shasum
-      const url = `https://github.com/screenplaydev/graphite-cli/archive/${tag}.zip`;
+      const url = `https://github.com/withgraphite/graphite-cli/archive/${tag}.zip`;
 
       process.chdir(tmp.dirSync({ keep: false }).name);
       execSync(`curl -L ${url} --output graphite-cli.zip`);
