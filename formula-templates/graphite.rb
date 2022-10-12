@@ -7,17 +7,23 @@ class Graphite < Formula
   if OS.mac?
     url "{{urlMac}}"
     sha256 "{{shasumMac}}"
-    def install
-      bin.install "gt-macos" => "gt"
-    end  
   end
 
   if OS.linux?
     url "{{urlLinux}}"
     sha256 "{{shasumLinux}}"
-    def install
+  end
+
+  def install
+    if OS.mac?
+      bin.install "gt-macos" => "gt"
+    elsif OS.linux?
       bin.install "gt-linux" => "gt"
-    end  
+    end
+
+    chmod 0555, bin/"gt"
+    generate_completions_from_executable(bin/"gt", "completion", shells:                 [:bash, :zsh, :fish],
+                                                                 shell_parameter_format: :none)
   end
 
   # TODO
