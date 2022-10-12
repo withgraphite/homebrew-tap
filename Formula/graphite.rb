@@ -1,8 +1,7 @@
 class Graphite < Formula
-  desc "The Graphite CLI allows you to easily manage your stacked-diff workflow."
+  desc "CLI that allows you to easily manage your stacked-diff workflow"
   homepage "https://graphite.dev/"
-  version "0.20.34"
-  license "None"
+  license "AGPL-3.0"
 
   if OS.mac?
     url "https://github.com/withgraphite/graphite-cli/releases/download/v0.20.34/gt-macos"
@@ -30,7 +29,6 @@ class Graphite < Formula
   # Hardware::CPU.intel?
   # Hardware::CPU.arm?
   # Hardware::CPU.is_64_bit?
-
 
   test do
     raise "Test not implemented."
