@@ -1,4 +1,4 @@
-class Graphite < Formula
+class GraphiteExeExperimental < Formula
   desc "The Graphite CLI allows you to easily manage your stacked-diff workflow."
   homepage "https://graphite.dev/"
   version "0.0.1"
