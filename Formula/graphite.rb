@@ -1,19 +1,30 @@
-require "language/node"
-
 class Graphite < Formula
   desc "The Graphite CLI allows you to easily manage your stacked-diff workflow."
   homepage "https://graphite.dev/"
-  url "https://github.com/withgraphite/graphite-cli/archive/v0.20.15.zip"
-  sha256 "02ad6eeec09c9827a20041f0a7a29d214c96102a4ae13e157577e6fff26006b0"
-  version "0.20.15"
-  license "None"
+  version "0.20.16"
 
-  depends_on "node@16"
 
-  def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+  if OS.mac?
+    url "https://github.com/withgraphite/graphite-cli/releases/download/pkg-exp/graphite-cli-macos"
+    sha256 "7ddddd7ba9856eaaa64e1480f91be33afed1bfafdc0078ca5b11dd36b59746f4"
+    def install
+      bin.install "graphite-cli-macos" => "gt"
+    end  
   end
+
+  if OS.linux?
+    url "https://github.com/withgraphite/graphite-cli/releases/download/pkg-exp/graphite-cli-linux"
+    sha256 "95148e245837dc6fdb25fa086bde7893671110865ddd2db9c41952c7ba60b1a7"
+    def install
+      bin.install "graphite-cli-linux" => "gt"
+    end  
+  end
+
+  # TODO
+  # Hardware::CPU.intel?
+  # Hardware::CPU.arm?
+  # Hardware::CPU.is_64_bit?
+
 
   test do
     raise "Test not implemented."
