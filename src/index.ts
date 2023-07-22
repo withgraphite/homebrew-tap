@@ -61,7 +61,6 @@ yargs
           urlLinux,
           shasumMac,
           shasumLinux,
-          version,
         })
       );
     }
