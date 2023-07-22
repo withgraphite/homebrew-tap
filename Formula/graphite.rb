@@ -1,5 +1,5 @@
 class Graphite < Formula
-  desc "The Graphite CLI allows you to easily manage your stacked-diff workflow."
+  desc "The Graphite CLI allows you to easily manage your stacked pull changes and their pull requests."
   homepage "https://graphite.dev/"
   version "0.20.34"
   license "None"

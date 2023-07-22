@@ -18,13 +18,10 @@
     "child_process": "^1.0.2",
     "fs-extra": "^9.0.1",
     "handlebars": "^4.7.7",
-    "node-fetch": "^2.6.1",
-    "tmp": "^0.2.1",
     "yargs": "^17.0.1"
   },
   "scripts": {
-    "build": "tsc",
-    "update-graphite-cli-version": "node ./dist/index.js update-graphite-cli-version"
+    "update-graphite-cli-version": "ts-node ./src/index.ts update-graphite-cli-version"
   },
   "packageManager": "yarn@3.1.1"
 }

@@ -4,32 +4,33 @@ import { execSync } from "child_process";
 import fs from "fs-extra";
 import * as handlebars from "handlebars";
 import path from "path";
-import tmp from "tmp";
 import yargs from "yargs";
 
 yargs
   .command(
-    "update-graphite-cli-version <tag>",
+    "update-graphite-cli-version <monologue>",
     "Update the version and shasum of the Graphite CLI",
     (yargs) => {
-      yargs.positional("tag", {
-        describe: "The tag of the release",
+      yargs.positional("monologue", {
+        describe:
+          "The path of your local checkout of monologue, with the release tag checked out.",
         type: "string",
         required: true,
       });
     },
-    (argv) => {
-      const tag = argv["tag"] as string;
+    (argv: { monologue: string }) => {
+      const bin = path.join(
+        argv.monologue,
+        "apps",
+        "public",
+        "cli",
+        "dist",
+        "bin"
+      );
 
-      // download the repo and calculate the shasum
-      const urlMac = `https://github.com/withgraphite/graphite-cli/releases/download/${tag}/gt-macos`;
-      const urlLinux = `https://github.com/withgraphite/graphite-cli/releases/download/${tag}/gt-linux`;
+      process.chdir(bin);
 
-      process.chdir(tmp.dirSync({ keep: false }).name);
-      execSync(`curl -fsSL ${urlMac} --output gt-mac`);
-      execSync(`curl -fsSL ${urlLinux} --output gt-linux`);
-
-      const shasumMac = execSync("shasum -a 256 gt-mac")
+      const shasumMac = execSync("shasum -a 256 gt-macos")
         .toString()
         .trim()
         .split(" ")[0];
@@ -38,6 +39,13 @@ yargs
         .toString()
         .trim()
         .split(" ")[0];
+
+      const version = execSync('jq -r ".version" ../package.json')
+        .toString()
+        .trim();
+
+      const urlMac = `https://github.com/withgraphite/homebrew-tap/releases/download/v${version}/gt-macos`;
+      const urlLinux = `https://github.com/withgraphite/homebrew-tap/releases/download/v${version}/gt-linux`;
 
       const formulaName = `graphite`;
       fs.writeFileSync(
@@ -53,7 +61,7 @@ yargs
           urlLinux,
           shasumMac,
           shasumLinux,
-          version: tag.slice(1).split("-")[0], // v1.2.3-abc => 1.2.3
+          version,
         })
       );
     }
