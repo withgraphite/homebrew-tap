@@ -18,7 +18,7 @@ class Graphite < Formula
       bin.install "gt-linux" => "gt"
     end
   end
-  
+
   # TODO
   # Hardware::CPU.intel?
   # Hardware::CPU.arm?
