@@ -8,7 +8,7 @@ import yargs from "yargs";
 
 yargs
   .command(
-    "update-graphite-cli-version <bin> <version>",
+    "update-graphite-cli-version <bin> <ver>",
     "Update the version and shasum of the Graphite CLI",
     (yargs) => {
       yargs.positional("bin", {
@@ -16,13 +16,13 @@ yargs
         type: "string",
         required: true,
       });
-      yargs.positional("version", {
+      yargs.positional("ver", {
         describe: "The version to bump to.",
         type: "string",
         required: true,
       });
     },
-    (argv: { bin: string; version: string }) => {
+    (argv: { bin: string; ver: string }) => {
       process.chdir(argv.bin);
 
       const shasumMac = execSync("shasum -a 256 gt-macos")
@@ -35,8 +35,8 @@ yargs
         .trim()
         .split(" ")[0];
 
-      const urlMac = `https://github.com/withgraphite/homebrew-tap/releases/download/v${argv.version}/gt-macos`;
-      const urlLinux = `https://github.com/withgraphite/homebrew-tap/releases/download/v${argv.version}/gt-linux`;
+      const urlMac = `https://github.com/withgraphite/homebrew-tap/releases/download/v${argv.ver}/gt-macos`;
+      const urlLinux = `https://github.com/withgraphite/homebrew-tap/releases/download/v${argv.ver}/gt-linux`;
 
       const formulaName = `graphite`;
       fs.writeFileSync(
