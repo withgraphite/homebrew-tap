@@ -4,16 +4,16 @@ class Graphite < Formula
   license "AGPL-3.0"
 
   if OS.mac?
-    url "https://github.com/withgraphite/homebrew-tap/releases/download/v0.21.2/gt-macos"
-    sha256 "68427230d357864924aeedb23852b541c541dc87c6c1c629b70ac136ddd8e456"
+    url "https://github.com/withgraphite/homebrew-tap/releases/download/v0.21.4/gt-macos"
+    sha256 "be670b121724f640cc6e319681fe55cb8330f5eec26e9889175ea22ac2fae04e"
     def install
       bin.install "gt-macos" => "gt"
     end
   end
 
   if OS.linux?
-    url "https://github.com/withgraphite/homebrew-tap/releases/download/v0.21.2/gt-linux"
-    sha256 "5ae5bf06be825bbe6caf42f625c1de43acb9d1264f98a51982fd19af6911fa6b"
+    url "https://github.com/withgraphite/homebrew-tap/releases/download/v0.21.4/gt-linux"
+    sha256 "73eaa6aa808b7e6440bec3afc1244f5143b8a1bd341163f98e4691c51bc6b19f"
     def install
       bin.install "gt-linux" => "gt"
     end
