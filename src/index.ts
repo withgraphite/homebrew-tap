@@ -8,27 +8,17 @@ import yargs from "yargs";
 
 yargs
   .command(
-    "update-graphite-cli-version <monologue>",
+    "update-graphite-cli-version <bin>",
     "Update the version and shasum of the Graphite CLI",
     (yargs) => {
-      yargs.positional("monologue", {
-        describe:
-          "The path of your local checkout of monologue, with the release tag checked out.",
+      yargs.positional("bin", {
+        describe: "The path where the Graphite binaries live.",
         type: "string",
         required: true,
       });
     },
-    (argv: { monologue: string }) => {
-      const bin = path.join(
-        argv.monologue,
-        "apps",
-        "public",
-        "cli",
-        "dist",
-        "bin"
-      );
-
-      process.chdir(bin);
+    (argv: { bin: string }) => {
+      process.chdir(argv.bin);
 
       const shasumMac = execSync("shasum -a 256 gt-macos")
         .toString()
