@@ -4,10 +4,18 @@ class Graphite < Formula
   license "AGPL-3.0"
 
   if OS.mac?
-    url "{{urlMac}}"
-    sha256 "{{shasumMac}}"
-    def install
-      bin.install "gt-macos" => "gt"
+    if Hardware::CPU.arm?
+      url "{{urlMacArm64}}"
+      sha256 "{{shasumMacArm64}}"
+      def install
+        bin.install "gt-macos-arm64" => "gt"
+      end
+    else
+      url "{{urlMacX64}}"
+      sha256 "{{shasumMacX64}}"
+      def install
+        bin.install "gt-macos-x64" => "gt"
+      end
     end
   end
 

@@ -25,7 +25,12 @@ yargs
     (argv: { bin: string; ver: string }) => {
       process.chdir(argv.bin);
 
-      const shasumMac = execSync("shasum -a 256 gt-macos")
+      const shasumMacX64 = execSync("shasum -a 256 gt-macos-x64")
+        .toString()
+        .trim()
+        .split(" ")[0];
+
+      const shasumMacArm64 = execSync("shasum -a 256 gt-macos-arm64")
         .toString()
         .trim()
         .split(" ")[0];
@@ -35,7 +40,8 @@ yargs
         .trim()
         .split(" ")[0];
 
-      const urlMac = `https://github.com/withgraphite/homebrew-tap/releases/download/v${argv.ver}/gt-macos`;
+      const urlMacX64 = `https://github.com/withgraphite/homebrew-tap/releases/download/v${argv.ver}/gt-macos-x64`;
+      const urlMacArmX64 = `https://github.com/withgraphite/homebrew-tap/releases/download/v${argv.ver}/gt-macos-arm64`;
       const urlLinux = `https://github.com/withgraphite/homebrew-tap/releases/download/v${argv.ver}/gt-linux`;
 
       const formulaName = `graphite`;
@@ -48,9 +54,11 @@ yargs
             )
             .toString()
         )({
-          urlMac,
+          urlMacX64,
+          urlMacArmX64,
           urlLinux,
-          shasumMac,
+          shasumMacX64,
+          shasumMacArm64,
           shasumLinux,
         })
       );
