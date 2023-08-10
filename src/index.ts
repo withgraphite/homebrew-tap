@@ -41,7 +41,7 @@ yargs
         .split(" ")[0];
 
       const urlMacX64 = `https://github.com/withgraphite/homebrew-tap/releases/download/v${argv.ver}/gt-macos-x64`;
-      const urlMacArmX64 = `https://github.com/withgraphite/homebrew-tap/releases/download/v${argv.ver}/gt-macos-arm64`;
+      const urlMacArm64 = `https://github.com/withgraphite/homebrew-tap/releases/download/v${argv.ver}/gt-macos-arm64`;
       const urlLinux = `https://github.com/withgraphite/homebrew-tap/releases/download/v${argv.ver}/gt-linux`;
 
       const formulaName = `graphite`;
@@ -55,7 +55,7 @@ yargs
             .toString()
         )({
           urlMacX64,
-          urlMacArmX64,
+          urlMacArm64,
           urlLinux,
           shasumMacX64,
           shasumMacArm64,
