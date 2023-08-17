@@ -5,14 +5,14 @@ class Graphite < Formula
 
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/withgraphite/homebrew-tap/releases/download/v0.22.2/gt-macos-arm64"
-      sha256 "e06b146a6194094f0d1dec8dd77704e002f76dd31824e70e1b35b10b7c25c314"
+      url "https://github.com/withgraphite/homebrew-tap/releases/download/v0.22.3/gt-macos-arm64"
+      sha256 "b511c0151a40c4f1520dfcd1a3c07c93f980d98956bc412d9f5f5470b4ec379c"
       def install
         bin.install "gt-macos-arm64" => "gt"
       end
     else
-      url "https://github.com/withgraphite/homebrew-tap/releases/download/v0.22.2/gt-macos-x64"
-      sha256 "9df7483ce9ffb1dbf65f4148e4841dc3bac11e5e7bbc1289a0dab25107b051a8"
+      url "https://github.com/withgraphite/homebrew-tap/releases/download/v0.22.3/gt-macos-x64"
+      sha256 "64879700b4e90036babb6c32b17564e50ecf6881069f0b859bccf8b6a8ca6627"
       def install
         bin.install "gt-macos-x64" => "gt"
       end
@@ -20,8 +20,8 @@ class Graphite < Formula
   end
 
   if OS.linux?
-    url "https://github.com/withgraphite/homebrew-tap/releases/download/v0.22.2/gt-linux"
-    sha256 "7671aa212bedcd8de2a7c620333e790022d04fd931fc4f602d0d8130ce2b8a85"
+    url "https://github.com/withgraphite/homebrew-tap/releases/download/v0.22.3/gt-linux"
+    sha256 "1b43950e9862b2d17d99bb10632b2c12e014266db6385df1bb18d75c343c1647"
     def install
       bin.install "gt-linux" => "gt"
     end
