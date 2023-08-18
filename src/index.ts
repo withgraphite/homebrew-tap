@@ -54,6 +54,7 @@ yargs
             )
             .toString()
         )({
+          version: argv.ver,
           urlMacX64,
           urlMacArm64,
           urlLinux,
