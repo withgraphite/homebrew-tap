@@ -1,4 +1,4 @@
-class GraphiteLatest < Formula
+class GraphiteAlpha < Formula
   desc "Allows you to manage your stacked changes and submit them for review on GitHub"
   homepage "https://graphite.dev/"
   license "AGPL-3.0"
