@@ -9,7 +9,7 @@ import yargs from "yargs";
 yargs
   .command(
     "update-graphite-cli-version <bin> <ver>",
-    "Update the latest version and shasum of the Graphite CLI",
+    "Update the alpha version and shasum of the Graphite CLI",
     (yargs) => {
       yargs.positional("bin", {
         describe: "The path where the Graphite binaries live.",
@@ -21,7 +21,7 @@ yargs
         type: "string",
         required: true,
       });
-      // TODO add option to bump stable to match latest (or something idk)
+      // TODO add option to bump stable to match alpha (or something idk)
     },
     (argv: { bin: string; ver: string }) => {
       process.chdir(argv.bin);
@@ -46,7 +46,7 @@ yargs
       const urlLinux = `https://github.com/withgraphite/homebrew-tap/releases/download/v${argv.ver}/gt-linux`;
 
       fs.writeFileSync(
-        path.join(__dirname, `../Formula/graphite-latest.rb`),
+        path.join(__dirname, `../Formula/graphite-alpha.rb`),
         handlebars.compile(
           fs
             .readFileSync(
@@ -55,7 +55,7 @@ yargs
             .toString()
         )({
           version: argv.ver,
-          classNameSuffix: 'Latest',
+          classNameSuffix: 'Alpha',
           urlMacX64,
           urlMacArm64,
           urlLinux,
