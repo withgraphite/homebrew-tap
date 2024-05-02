@@ -13,7 +13,7 @@ class GraphiteAlpha < Formula
       end
     else
       url "https://github.com/withgraphite/homebrew-tap/releases/download/v1.3.4/gt-macos-x64"
-      sha256 "9e3475f1576be74e6311973e028c6d199ee1bfb5b3f8e81995a6c0959d4a7f1d"
+      sha256 "01f13525c1d6e1b8bf56bdcdd0c0aff6bc350458bde14496de166b80e488ee09"
       def install
         bin.install "gt-macos-x64" => "gt"
       end
