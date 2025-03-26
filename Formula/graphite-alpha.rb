@@ -2,7 +2,7 @@ class GraphiteAlpha < Formula
   desc "Allows you to manage your stacked changes and submit them for review on GitHub"
   homepage "https://graphite.dev/"
   license "AGPL-3.0"
-  version ""
+	version "1.6.1"
 
   if OS.mac?
     if Hardware::CPU.arm?
