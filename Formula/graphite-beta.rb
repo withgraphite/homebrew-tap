@@ -2,18 +2,18 @@ class GraphiteBeta < Formula
   desc "Allows you to manage your stacked changes and submit them for review on GitHub"
   homepage "https://graphite.dev/"
   license "AGPL-3.0"
-  version "1.6.7"
+  version "1.6.8"
 
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/withgraphite/homebrew-tap/releases/download/v1.6.7/gt-macos-arm64"
-      sha256 "4e009c05c6c5e9e44d4589e27d983a498e7e6feaad160890d90cdf6fa0aa322c"
+      url "https://github.com/withgraphite/homebrew-tap/releases/download/v1.6.8/gt-macos-arm64"
+      sha256 "5e82923d7574daf104f149576de3926bf99c13f70836f8f9493f0202f7c86e58"
       def install
         bin.install "gt-macos-arm64" => "gt"
       end
     else
-      url "https://github.com/withgraphite/homebrew-tap/releases/download/v1.6.7/gt-macos-x64"
-      sha256 "31fb751668010c847d797e4c64b1261da48b6bcb4fe7f8012c521b0d266a0164"
+      url "https://github.com/withgraphite/homebrew-tap/releases/download/v1.6.8/gt-macos-x64"
+      sha256 "ad3a2331a8b59606e83071b90deccec4b24ae61eeb72f43ca36a84495734fb86"
       def install
         bin.install "gt-macos-x64" => "gt"
       end
@@ -21,8 +21,8 @@ class GraphiteBeta < Formula
   end
 
   if OS.linux?
-    url "https://github.com/withgraphite/homebrew-tap/releases/download/v1.6.7/gt-linux"
-    sha256 "c04f2acaed33725305c4d44adf9374831d3f7233a44596e1c49533a34cc2cb14"
+    url "https://github.com/withgraphite/homebrew-tap/releases/download/v1.6.8/gt-linux"
+    sha256 "7f59a524d66a18c084b1c43e20eabc358c9a0c9cbfc0b165c0e11ec3905054ed"
     def install
       bin.install "gt-linux" => "gt"
     end
