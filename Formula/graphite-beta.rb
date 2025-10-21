@@ -3,6 +3,7 @@ class GraphiteBeta < Formula
   homepage "https://graphite.dev/"
   license "AGPL-3.0"
   version "1.7.3"
+  deprecate! date: "2025-10-21", because: "This version has been deprecated"
 
   if OS.mac?
     if Hardware::CPU.arm?
