@@ -46,7 +46,7 @@ yargs
       const urlLinux = `https://github.com/withgraphite/homebrew-tap/releases/download/v${argv.ver}/gt-linux`;
 
       fs.writeFileSync(
-        path.join(__dirname, `../Formula/graphite-alpha.rb`),
+        path.join(__dirname, `../Formula/graphite-beta.rb`),
         handlebars.compile(
           fs
             .readFileSync(
@@ -55,7 +55,7 @@ yargs
             .toString()
         )({
           version: argv.ver,
-          classNameSuffix: 'Alpha',
+          classNameSuffix: 'Beta',
           urlMacX64,
           urlMacArm64,
           urlLinux,
