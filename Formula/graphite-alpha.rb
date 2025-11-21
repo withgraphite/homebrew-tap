@@ -4,6 +4,10 @@ class GraphiteAlpha < Formula
   license "AGPL-3.0"
   version "1.7.9"
 
+  deprecate! date: "2025-11-21", 
+            because: "Graphite has discontinued the Alpha stage of the CLI release cycle", 
+            replacement_formula: "graphite-beta"
+
   if OS.mac?
     if Hardware::CPU.arm?
       url "https://github.com/withgraphite/homebrew-tap/releases/download/v1.7.9/gt-macos-arm64"
