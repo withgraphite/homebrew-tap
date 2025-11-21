@@ -4,7 +4,9 @@ class GraphiteAlpha < Formula
   license "AGPL-3.0"
   version "1.7.9"
 
-  deprecate! date: "2025-11-21", because: "As of 11/21/2025, we discontinued the Alpha stage of the release cycle. The CLI will initially release to Beta stage and then graduate to Stable.", replacement_formula: "graphite-beta"
+  deprecate! date: "2025-11-21", 
+            because: "Graphite has discontinued the Alpha stage of the CLI release cycle", 
+            replacement_formula: "graphite-beta"
 
   if OS.mac?
     if Hardware::CPU.arm?
