@@ -25,17 +25,20 @@ class GraphiteAlpha < Formula
   end
 
   if OS.linux?
-    url "https://github.com/withgraphite/homebrew-tap/releases/download/v1.7.9/gt-linux"
-    sha256 "82204e3274b8ba89a41645b04c50dc4630a551add0e4cf740f39c52dea2801ec"
-    def install
-      bin.install "gt-linux" => "gt"
+    if Hardware::CPU.arm?
+      url "https://github.com/withgraphite/homebrew-tap/releases/download/v1.7.9/gt-linux-arm64"
+      sha256 "ed51914f8456b5629d29d250879a7161d3932797a83bfb7bb8be0187e144086a"
+      def install
+        bin.install "gt-linux-arm64" => "gt"
+      end
+    else
+      url "https://github.com/withgraphite/homebrew-tap/releases/download/v1.7.9/gt-linux"
+      sha256 "82204e3274b8ba89a41645b04c50dc4630a551add0e4cf740f39c52dea2801ec"
+      def install
+        bin.install "gt-linux" => "gt"
+      end
     end
   end
-
-  # TODO
-  # Hardware::CPU.intel?
-  # Hardware::CPU.arm?
-  # Hardware::CPU.is_64_bit?
 
   test do
     raise "Test not implemented."
