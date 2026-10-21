@@ -21,17 +21,20 @@ class Graphite{{classNameSuffix}} < Formula
   end
 
   if OS.linux?
-    url "{{urlLinux}}"
-    sha256 "{{shasumLinux}}"
-    def install
-      bin.install "gt-linux" => "gt"
+    if Hardware::CPU.arm?
+      url "{{urlLinuxArm64}}"
+      sha256 "{{shasumLinuxArm64}}"
+      def install
+        bin.install "gt-linux-arm64" => "gt"
+      end
+    else
+      url "{{urlLinux}}"
+      sha256 "{{shasumLinux}}"
+      def install
+        bin.install "gt-linux" => "gt"
+      end
     end
   end
-
-  # TODO
-  # Hardware::CPU.intel?
-  # Hardware::CPU.arm?
-  # Hardware::CPU.is_64_bit?
 
   test do
     raise "Test not implemented."

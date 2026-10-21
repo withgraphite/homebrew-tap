@@ -41,9 +41,15 @@ yargs
         .trim()
         .split(" ")[0];
 
+      const shasumLinuxArm64 = execSync("shasum -a 256 gt-linux-arm64")
+        .toString()
+        .trim()
+        .split(" ")[0];
+
       const urlMacX64 = `https://github.com/withgraphite/homebrew-tap/releases/download/v${argv.ver}/gt-macos-x64`;
       const urlMacArm64 = `https://github.com/withgraphite/homebrew-tap/releases/download/v${argv.ver}/gt-macos-arm64`;
       const urlLinux = `https://github.com/withgraphite/homebrew-tap/releases/download/v${argv.ver}/gt-linux`;
+      const urlLinuxArm64 = `https://github.com/withgraphite/homebrew-tap/releases/download/v${argv.ver}/gt-linux-arm64`;
 
       fs.writeFileSync(
         path.join(__dirname, `../Formula/graphite-beta.rb`),
@@ -59,9 +65,11 @@ yargs
           urlMacX64,
           urlMacArm64,
           urlLinux,
+          urlLinuxArm64,
           shasumMacX64,
           shasumMacArm64,
           shasumLinux,
+          shasumLinuxArm64,
         })
       );
     }
